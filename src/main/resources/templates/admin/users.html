@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org" th:replace="base::layout(~{::section})">
+    <head>
+        <title>Manage Users</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <section>
+            <div class="container-fluid text-center">
+
+                <div><h2> Manage User </h2> </div>
+                <div> <a class="h3 text-decoration-none" th:href="@{/admin/add-new}" > Add New User </a> </div>
+                <div th:if="${message}" class="alert alert-success text-center">
+                    [[${message}]]
+                </div>
+                <div class="mt-2"> 
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th> ID </th>
+                                <th> Name </th>
+                                <th> E-mail </th> 
+                                <th> Role </th>
+                                <th> Action</th>
+                            </tr> 
+
+                        </thead>
+                        <tbody>
+                            <th:block th:each="user: ${listUsers}">
+
+                                <tr>
+                                    <td> [[${user.id}]]</td>
+                                    <td> [[${user.name}]]</td> 
+                                    <td> [[${user.email}]]</td> 
+                                    <td> [[${user.role}]]</td>
+                                    <td> <a class="h4 text-decoration-none" th:href="@{'/admin/edit/' +${user.id}}">Edit </a> 
+                                        <a class="h4 text-decoration-none" th:href="@{'/admin/delete/' +${user.id}}">Delete </a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

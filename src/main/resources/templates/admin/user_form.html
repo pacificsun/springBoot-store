@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org" th:replace="base::layout(~{::section})">
+    <head>
+        <title>[[${pageTitle}]]</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <section>
+            <div class="container-fluid"> 
+                <div class="text-center"> <h2> [[${pageTitle}]]</h2> </div>
+
+
+
+                <form action="" th:action="@{/admin/save}" method="post" th:object="${user}" style="max-width: 500px; margin: 0 auto">
+                    
+                    <input type="hidden" th:field="*{id}"/>
+                    
+                    <div class="border border-secondary rounded p-3">
+                        
+                  
+
+                    <!--                                name field-->
+                    <div class="form-group row mt-4">
+                        <label  class="col-sm-4 col-form-label">Name:</label>
+                        <div class="col-sm-8">
+                             <input
+                            
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Enter Here"
+                            required=true
+                            th:field="*{name}"
+                           
+                            />
+                        </div>
+                       
+
+                    </div>
+                    <!--                                email field-->
+                    
+                     <div class="form-group row mt-4">
+                        <label  class="col-sm-4 col-form-label">Email:</label>
+                        <div class="col-sm-8">
+                             <input
+                            
+                            type="email" 
+                            class="form-control" 
+                            placeholder="Enter Here"
+                            required=true
+                            th:field="*{email}"
+                           
+                            />
+                        </div>
+                       
+
+                    </div>
+                 
+                    <!--                                password field-->
+                    <div class="form-group row mt-4">
+                        <label  class="col-sm-4 col-form-label">Password:</label>
+                        <div class="col-sm-8">
+                             <input
+                           
+                            type="password"
+                            class="form-control" 
+                            placeholder="Enter Here"
+                            required=true
+                            th:field="*{password}"
+                           
+                            />
+                        </div>
+                       
+
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary m-2" type="submit">
+                            Submit
+                        </button>
+                        <button class="btn btn-secondary" type="button" onclick="cancelForm()">
+                            Cancel
+                        </button>
+                    </div>
+                    
+                    </div>
+                </form>
+            </div>
+            </div>  
+            </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
